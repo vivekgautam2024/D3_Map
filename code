@@ -1,0 +1,15 @@
+map = {
+// Create an HTML container with a height of 500 pixels to hold the map
+const container = yield htl.html`<div style="height: 500px;">`;
+
+// Initialize a Leaflet map instance and attach it to the container
+// Set the initial view of the map to San Francisco coordinates [37.774, -122.423] with a zoom level of 13
+const map = L.map(container).setView([37.774, -122.423], 13);
+
+// Add a tile layer to the map using tiles from OpenStreetMap
+// The URL template specifies how to access the map tiles
+// The attribution provides credit to OpenStreetMap contributors
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a> contributors"
+}).addTo(map);
+}
